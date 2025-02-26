@@ -68,7 +68,16 @@ async function main() {
         // Renders the history for display in the browser.
         res.render("history", { videos: historyResponse.data.history });
     });
+    app.get("/advertise", async (req, res) => {
 
+        // Retreives the data from the history microservice.
+        const advertiseResponse = await axios.get("http://advertise/get-links");
+
+        // Renders the history for display in the browser.
+        res.render("advertise", { links: advertiseResponse.data });
+        // res.render("advertise");
+
+    });
     //
     // HTTP GET route that streams video to the user's browser.
     //
