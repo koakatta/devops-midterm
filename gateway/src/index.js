@@ -69,12 +69,15 @@ async function main() {
         res.render("history", { videos: historyResponse.data.history });
     });
     app.get("/advertise", async (req, res) => {
-
+        console.log("call advertise");
         // Retreives the data from the history microservice.
         const advertiseResponse = await axios.get("http://advertise/get-links");
+        const shopeepic=await axios.get("http://advertise/pic-shopee")
+        const lazadapic=await axios.get("http://advertise/pic-lazada")
+        const kaideepic=await axios.get("http://advertise/pic-kaidee")
 
         // Renders the history for display in the browser.
-        res.render("advertise", { links: advertiseResponse.data });
+        res.render("advertise", { links: advertiseResponse.data ,shopeepic:shopeepic.data,lazadapic:lazadapic.data,kaideepic:kaideepic.data});
         // res.render("advertise");
 
     });

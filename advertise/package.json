@@ -1,11 +1,12 @@
 {
-  "name": "metadata",
+  "name": "advertise",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
     "start:dev": "nodemon --legacy-watch ./src/index.js",
+    "start:dev2": "cross-env PORT=8000 nodemon --legacy-watch ./src/index.js ",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
@@ -14,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "amqplib": "^0.10.3",
+    "cross-env": "^7.0.3",
     "express": "^5.0.0-beta.1",
     "mongodb": "^6.0.0",
     "wait-port": "^0.2.6"
